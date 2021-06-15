@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => 'public/posts#index'
+  root 'public/posts#index'
 
   devise_for :admins, :controllers => {
     sessions: 'admins/sessions',
