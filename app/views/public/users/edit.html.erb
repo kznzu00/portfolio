@@ -1,2 +1,39 @@
-<h1>Public::Users#edit</h1>
-<p>Find me in app/views/public/users/edit.html.erb</p>
+<h1>編集</h1>
+
+<%= form_with model: @user, local:true do |f| %>
+
+  <div class="form-group">
+    <%= attachment_image_tag @user, :icon_id, :fill, 40, 40, fallback: "no_image.jpg", class: "mt-3 rounded-circle" %>
+    <%= f.attachment_field :icon %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :nicknam,"ニックネーム" %>
+    <%= f.text_field :nickname, class: "from-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :full_name, "氏名" %>
+    <%= f.text_field :full_name, class: "from-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :full_name_kana, "フリガナ" %>
+    <%= f.text_field :full_name_kana, class: "from-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, "メールアドレス" %>
+    <%= f.text_field :email, class: "from-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :introduction, "自己紹介" %>
+    <%= f.text_area :introduction, class: "from-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit '保存する', class: "from-control" %>
+  </div>
+
+<% end %>

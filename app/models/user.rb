@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :comments
 
+  attachment :icon
+
   validates :full_name, presence: true
   validates :full_name_kana, presence: true
 end

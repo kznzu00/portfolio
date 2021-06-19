@@ -16,20 +16,25 @@ Rails.application.routes.draw do
   namespace :admins do
     get 'top', to: 'homes#top'
     resources :users,     :only => [:index, :show, :edit, :update]
-    resources :posts,     :only => [:show, :destroy]
-    resources :comments,  :only => [:destroy]
-    resources :favorites, :only => [:show]
+    resources :posts,     :only => [:index, :show, :destroy] do
+      resources :comments,  :only => [:destroy]
+      resources :favorites, :only => [:show]
+    end
     resources :genres
     resources :makers
   end
 
   scope module: :public do
-    get '/homes/about', to: 'public/homes#about'
+    get '/homes/about', to: '/public/homes#about'
     resources :homes,    :only => [:about]
-    resources :users,    :only => [:my_pages, :show, :edit, :update, :unsubscribe, :withdraw]
-    resources :posts,    :only => [:index, :show, :create, :destroy]
-    resources :comments, :only => [:create, :destroy]
-    resources :favorites, :only => [:show, :create, :destroy]
+    resources :users,    :only => [:show, :edit, :update, :unsubscribe, :withdraw]
+    get '/user/my_page', to: '/public/users#my_page'
+    get 'user/unsubscribe', to: '/public/users#unsubscribe'
+    post 'user/withdraw', to: '/public/users#withdraw'
+    resources :posts,    :only => [:index, :show, :create, :destroy] do
+      resources :comments, :only => [:create, :destroy]
+      resources :favorites, :only => [:show, :create, :destroy]
+    end
 
   end
 
