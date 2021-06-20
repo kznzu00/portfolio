@@ -16,7 +16,9 @@
     </div>
 
   <div class="row">
-    ♥<%= @post.favorites.count %> いいね
+    <%= link_to admins_post_favorite_path(@post.id) do %>
+      ♥<%= @post.favorites.count %> いいね
+    <% end %>
   </div>
 </div>
 
