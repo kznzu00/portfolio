@@ -1,7 +1,7 @@
 class Public::PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).reverse_order
     @newpost = Post.new
   end
 
@@ -16,6 +16,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
+    @comments = Comment.where(post_id: @post.id).order(id: "DESC")
   end
 
   private

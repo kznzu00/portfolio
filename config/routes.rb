@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     resources :users,    :only => [:show, :edit, :update, :unsubscribe, :withdraw]
     get '/user/my_page', to: '/public/users#my_page'
     get 'user/unsubscribe', to: '/public/users#unsubscribe'
-    post 'user/withdraw', to: '/public/users#withdraw'
+    patch 'user/withdraw', to: '/public/users#withdraw'
     resources :posts,    :only => [:index, :show, :create, :destroy] do
       resources :comments, :only => [:create, :destroy]
       resources :favorites, :only => [:show, :create, :destroy]

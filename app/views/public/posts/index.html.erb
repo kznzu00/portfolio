@@ -1,6 +1,6 @@
-<div class="container mt-5">
+<div class="container-fluid mt-5">
   <div class="row">
-    <div class="col-10 text-right">
+    <div class="col-8 text-right">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
         新規投稿
       </button>
@@ -8,10 +8,18 @@
   </div>
 </div>
 
-<div class="container mt-5">
+<div class="container-fluid mt-5">
   <div class="row">
-    <div class="col-8 offset-2">
+    <div class="col-5 offset-4 posts">
       <%= render 'posts', posts: @posts %>
+    </div>
+    <div class="col-3">
+      <h4>いいねTOP５の投稿</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 offset-5">
+      <%= paginate @posts %>
     </div>
   </div>
 </div>

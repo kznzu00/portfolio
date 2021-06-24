@@ -35,4 +35,12 @@
   </div>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= @user.is_active %>
+    </div>
+  </div>
+</div>
+
 <%= link_to '編集', edit_admins_user_path(@user.id) %>
