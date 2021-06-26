@@ -50,10 +50,15 @@
     <div class="col offset-4">
       <%= form_with model:[@post, @comment], local:true do |f| %>
       <%= f.text_area :comment,size: "73x5" %>
-      <%= f.submit '送信' %>
-      <% end %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col offset-7">
+      <%= f.submit '送信' %>
+    </div>
+  </div>
+      <% end %>
 </div>
 <% end %>
 
