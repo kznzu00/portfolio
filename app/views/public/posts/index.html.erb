@@ -14,7 +14,21 @@
       <%= render 'posts', posts: @posts %>
     </div>
     <div class="col-3">
-      <h4>いいねTOP５の投稿</h4>
+      <h4>TOP５ いいね</h4>
+        <% @favorites_ranks.each do |rank| %>
+        <div class="card mb-3" style="width: 20rem;">
+          <%= link_to post_path(rank.id) do %>
+            <%= attachment_image_tag rank, :image ,class: "card-img-top", size:'150x225' %>
+          <% end %>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%=simple_format rank.introduction %></li>
+              <li class="list-group-item text-success">♥<%= rank.favorites.count %>件のいいね</li>
+              <li class="list-group-item text-dark"><%= link_to rank.comments.count, post_path(rank.id) %>件のコメント</li>
+            </ul>
+          </div>
+        </div>
+        <% end %>
     </div>
   </div>
   <div class="row">

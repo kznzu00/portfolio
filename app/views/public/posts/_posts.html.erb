@@ -21,7 +21,16 @@
       <li class="list-group-item"><%= simple_format post.introduction %></li>
     </ul>
     <div class="card-footer">
-      <h6 class="text-success">♥<%= post.favorites.count %>のいいね</h6>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h6 class="text-success">♥<%= post.favorites.count %>件のいいね</h6>
+          </div>
+          <div class="col">
+            <h6 class="text-dark"><%= post.comments.count %>件のコメント</h6>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>
