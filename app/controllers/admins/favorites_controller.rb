@@ -1,5 +1,8 @@
 class Admins::FavoritesController < ApplicationController
-  def show
-    @post = Post.find(params[:id])
+
+  def index
+    @post = Post.find(params[:post_id])
+    @favorites = Favorite.where(post_id: @post.id )
   end
+
 end

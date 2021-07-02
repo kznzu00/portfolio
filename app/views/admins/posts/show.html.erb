@@ -1,53 +1,88 @@
-<div class="container-fluid mt-5" style="width: 40rem;">
-  <div class="card">
-    <div class="card-header">
-      <%= link_to admins_user_path(@post.user.id) do %>
-        <%= attachment_image_tag @post.user, :icon, :fill,60, 60, fallback: "no_image.jpg", size:'60x60', class: "mt-3 rounded-circle" %>
-      <% end %>
-      <h6 class="text-dark"><%= link_to @post.user.nickname, admins_user_path(@post.user.id) %></h6>
-    </div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <div class="card mb-5 mx-auto" style="width: 40rem;">
+        <div class="card-header">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <h2 class="text-center text-dark"><%= @post.name %></h2>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <div class="card-body">
-      <div class="text-center">
-        <%= attachment_image_tag @post, :image, class: "card-img-top", size:'300x450' %>
+        <div class="card-body">
+          <%= attachment_image_tag @post, :image, class: "card-img-top", size:'300x450' %>
+          <div class="post-user border-bottom">
+            <%= link_to admins_user_path(@post.user.id) do %>
+              <%= attachment_image_tag @post.user, :icon, size: "70x70", fallback: "no_image.jpg", size:'50x50', class: "mt-3 rounded-circle" %>
+              <h3 class="text-dark"><%= @post.user.nickname %></h3>
+            <% end %>
+          </div>
+          
+          <table>
+            <tbody>
+              <tr>
+                <th><h5>ジャンル名</h5></th> <th><%= @post.genre.name %></th>
+              </tr>
+              <tr>
+                <th><h5>メーカー名</h5></th> <th><%= @post.maker.name %></th>
+              </tr>
+            </tbody>
+          </table>
+          <div class="post-introduction">
+            <%= simple_format @post.introduction %>
+          </div>
+          </div>
+          <div class="card-footer">
+            <ul class="list-group list-group-flush" style="list-style:none">
+              <li>
+                <div class="footer-container">
+                  <div class="row">
+                    <div class="col text-center">
+                      <h6 class="text-success">♥<%= @post.favorites.count %>件のいいね</h6></br>
+                    </div>
+                    <div class="col text-center">
+                      <h6 class="text-dark"><%= @post.comments.count %>件のコメント</h6>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="text-right">投稿日時　<%= @post.created_at.to_s(:datetime_jp) %></li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><h3><%= @post.name %></h3></li>
-      <li class="list-group-item"><%= simple_format @post.introduction %></li>
-    </ul>
-    <div class="card-footer">
-      <h6 class="text-success">♡<%= @post.favorites.count %>件のいいね</h6>
-      <h6 class="text-dark">♡<%= @post.comments.count %>件のコメント</h6>
-      <!--ハートではなくコメントのアイコンを入れる-->
     </div>
   </div>
 </div>
 
-<div class="container-fluid mt-5 mb-5">
+<div class="container mt-5 mb-5">
   <div class="row">
-    <div class="col-4 offset-4">
-      <table>
-        <thead>
-          <tr>
-            <h3 class="border-bottom">コメント</h3>
-          </tr>
-        </thead>
-        <% @comments.each do | comment | %>
-        <tbody>
-          <tr>
-            <th>
-              ・<%= comment.comment %>
-                <%= link_to admins_user_path(comment.user.id) do  %>
-                  <%= comment.user.nickname %>
-                  <%= attachment_image_tag comment.user, :icon, :fill,60, 60, fallback: "no_image.jpg", size:'30x30', class: "mt-3 rounded-circle" %>
-                <% end %>
-              <%= comment.created_at.to_s(:datetime_jp) %>
-            </th>
-          </tr>
-        </tbody>
-        <% end %>
-      </table>
+    <div class="col-8 offset-2">
+      <div class="mx-auto">
+        <h3 class="border-bottom ">コメント</h3>
+      </div>
     </div>
   </div>
+  <% @comments.each do | comment | %>
+  <div class="row">
+    <div class="col offset-2">
+    ・<%= comment.comment %>
+    </div>
+    <div class="col">
+      <%= link_to admins_user_path(comment.user.id) do  %>
+        <%= comment.user.nickname %>
+        <%= attachment_image_tag comment.user, :icon, :fill,60, 60, fallback: "no_image.jpg", size:'30x30', class: "mt-3 rounded-circle" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col-8 offset-2 text-right border-bottom">
+      <%= comment.created_at.to_s(:datetime_jp) %>
+    </div>
+  </div>
+  <% end %>
+
 </div>

@@ -1,49 +1,91 @@
-<h1>編集</h1>
-
-<%= form_with model: [:admins,@user], local:true do |f| %>
-
-  <div class="form-group">
-    <%= attachment_image_tag @user, :icon, :fill, 40, 40, fallback: "no_image.jpg", class: "mt-3 rounded-circle" %>
-    <%= f.attachment_field :icon %>
+<div class="edit-container offset-3">
+  <div class="row">
+    <div class="col">
+      <h1><編集></h1>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :nicknam,"ニックネーム" %>
-    <%= f.text_field :nickname, class: "from-control" %>
+  <%= form_with model: [:admins,@user], local:true do |f| %>
+  <div class="form-group row">
+    <div class="col-3 offset-1">
+      <%= attachment_image_tag @user, :icon, :fill, 40, 40, fallback: "no_image.jpg", class: "mt-3 rounded-circle" %>
+    </div>
+    <div class="col">
+      <%= f.attachment_field :icon %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :full_name, "氏名" %>
-    <%= f.text_field :full_name, class: "from-control" %>
+  <div class="form-group row">
+    <div class="col-3 offset-1">
+      <%= f.label :nicknam,"ニックネーム" %>
+    </div>
+    <div class="col">
+      <%= f.text_field :nickname, class: "from-control" %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :full_name_kana, "フリガナ" %>
-    <%= f.text_field :full_name_kana, class: "from-control" %>
+  <div class="form-group row">
+    <div class="col-3 offset-1">
+      <%= f.label :full_name, "氏名" %>
+    </div>
+    <div class="col">
+      <%= f.text_field :full_name, class: "from-control" %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.text_field :email, class: "from-control" %>
+  <div class="form-group row">
+    <div class="col-3 offset-1">
+      <%= f.label :full_name_kana, "フリガナ" %>
+    </div>
+    <div class="col">
+      <%= f.text_field :full_name_kana, class: "from-control" %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :introduction, "自己紹介" %>
-    <%= f.text_area :introduction, class: "from-control" %>
+  <div class="form-group row">
+    <div class="col-3 offset-1">
+      <%= f.label :email, "メールアドレス" %>
+    </div>
+    <div class="col">
+      <%= f.text_field :email, class: "from-control",:size=>"50" %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.radio_button :is_active, :'有効' %>
-    <%= f.label :'有効' %>
+  <div class="form-group row">
+    <div class="col-3 offset-1">
+      <%= f.label :introduction, "自己紹介" %>
+    </div>
+    <div class="col">
+      <%= f.text_area :introduction, class: "from-control",:size=>"50x10" %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.radio_button :is_active, :'退会' %>
-    <%= f.label :'退会' %>
+  <div class="form-group row">
+    <div class="col-3 offset-1">
+      <label>ステータス</label>
+    </div>
+    <div class="col-1">
+      <%= f.radio_button :is_active, :'有効' %>
+      <%= f.label :'有効' %>
+    </div>
+    <div class="col">
+      <%= f.radio_button :is_active, :'退会' %>
+      <%= f.label :'退会' %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.submit '保存する', class: "from-control" %>
+  <div class="form-group row">
+    <div class="col-2 offset-7">
+      <%= f.submit '保存する', class: "from-control btn-outline-success btn-lg" %>
+    </div>
   </div>
 
-<% end %>
+  <% end %>
+
+
+</div>
+
+
+
+
+
