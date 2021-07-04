@@ -15,12 +15,22 @@
  */
 @import "bootstrap";
 
-// footer {
-//   height: 100px;
-//   background-color: red;
-// }
+main {
+  background-image: url(basketball-court-4158462_1920.jpeg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: rgba(255,255,255,0.8);
+  background-blend-mode: lighten;
+}
 
-// footer p {
-//   margin-top: 50px;
-// }
+footer {
+  height: 100px;
+  background-color: red;
+}
+
+footer p {
+  margin-top: 50px;
+}
 
