@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   namespace :admins do
     get 'top', to: 'homes#top'
+    get 'posts/statistics', to: 'posts#statistics'
+    get 'users/statistics/:id', to: 'users#statistics', as: 'users_statistics'
     resources :users,     :only => [:index, :show, :edit, :update]
     resources :posts,     :only => [:index, :show, :destroy] do
       resources :comments,  :only => [:destroy]

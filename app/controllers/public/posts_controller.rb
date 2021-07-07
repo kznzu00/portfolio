@@ -20,6 +20,12 @@ class Public::PostsController < ApplicationController
     @comments = Comment.where(post_id: @post.id).order(id: "DESC")
   end
 
+  def delete
+    @post = Post.find(params[:id])
+    @post = Post.destroy
+    redirect_to user_my_page_path
+  end
+
   private
 
   def post_params

@@ -7,4 +7,15 @@ class Admins::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = Comment.where(post_id: @post.id).order(id: "DESC")
   end
+
+  def statistics
+    @posts = Post.all
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:user_id,:genre_id,:maker_id,:name,:image,:introduction)
+  end
+
 end

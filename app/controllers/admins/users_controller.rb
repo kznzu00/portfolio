@@ -8,6 +8,11 @@ class Admins::UsersController < ApplicationController
     @posts = @user.posts.page(params[:page]).reverse_order
   end
 
+  def statistics
+    @user = User.find(params[:id])
+    @posts = @user.posts
+  end
+
   def edit
     @user = User.find(params[:id])
   end

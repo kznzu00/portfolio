@@ -117,7 +117,14 @@
                   </div>
                 </div>
               </li>
-              <li class="text-right">投稿日時　<%= post.created_at.to_s(:datetime_jp) %></li>
+              <li>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-3"><%= link_to "投稿削除" ,post_path(post.id), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に退会しますか？" %></div>
+                    <div class="col"><p class="text-right">投稿日時　<%= post.created_at.to_s(:datetime_jp) %></p></div>
+                  </div>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
@@ -131,6 +138,3 @@
     </div>
   </div>
 </div>
-
-
-

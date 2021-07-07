@@ -120,10 +120,10 @@
 
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-4 offset-5">
       <%= paginate @posts %>
     </div>
   </div>
 </div>
 
-
+<%= link_to "統計", admins_users_statistics_path(@user.id) %>

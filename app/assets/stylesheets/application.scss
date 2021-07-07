@@ -23,11 +23,12 @@ main {
   background-attachment: fixed;
   background-color: rgba(255,255,255,0.8);
   background-blend-mode: lighten;
+  min-height: 79vh;
 }
 
 footer {
   height: 100px;
-  background-color: red;
+  background-color: #AAAAAA;
 }
 
 footer p {

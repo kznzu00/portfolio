@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column" style="min-height: 100vh" >
     <header class="sticky-top">
       <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <div class="container-fluid m-3">
@@ -49,7 +49,7 @@
 
     </header>
 
-    <main>
+    <main class="mb-auto">
       <%= yield %>
     </main>
     <footer >
