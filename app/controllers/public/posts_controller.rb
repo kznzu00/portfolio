@@ -7,11 +7,11 @@ class Public::PostsController < ApplicationController
   end
 
   def create
-    @newpost = Post.new(post_params)
-    @newpost.user_id = current_user.id
-    pp @newpost
-    @newpost.save
-    @posts = Post.all
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    @post.save
+    @posts = Post.all.reverse_order
+    @newpost = Post.new
   end
 
   def show
@@ -20,9 +20,9 @@ class Public::PostsController < ApplicationController
     @comments = Comment.where(post_id: @post.id).order(id: "DESC")
   end
 
-  def delete
+  def destroy
     @post = Post.find(params[:id])
-    @post = Post.destroy
+    @post.destroy
     redirect_to user_my_page_path
   end
 

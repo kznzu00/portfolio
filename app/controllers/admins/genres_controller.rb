@@ -14,6 +14,12 @@ class Admins::GenresController < ApplicationController
     end
   end
 
+  def destroy
+    @genre = Genre.find(params[:id])
+    @genre.destroy
+    redirect_to admins_genres_path
+  end
+
   private
 
   def genre_params

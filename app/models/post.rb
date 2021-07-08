@@ -4,8 +4,8 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  belongs_to :genre, dependent: :destroy
-  belongs_to :maker, dependent: :destroy
+  belongs_to :genre
+  belongs_to :maker
 
   attachment :image
 

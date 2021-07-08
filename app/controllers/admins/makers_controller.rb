@@ -14,6 +14,18 @@ class Admins::MakersController < ApplicationController
     end
   end
 
+  def destroy
+    maker = Maker.find(params[:id])
+    maker.destroy
+    redirect_to admins_makers_path
+  end
+
+  def destroy
+    @maker = Maker.find(params[:id])
+    @maker.destroy
+    redirect_to admins_makers_path
+  end
+
   private
 
   def maker_params

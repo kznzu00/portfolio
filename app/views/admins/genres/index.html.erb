@@ -12,8 +12,10 @@
         <tbody>
           <tr>
             <th><%= genre.name %></th>
+            <th><%= link_to "削除" ,admins_genre_path(genre.id), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %></th>
           </tr>
         </tbody>
+
         <% end %>
       </table>
       </div>

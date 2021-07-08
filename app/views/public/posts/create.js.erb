@@ -1,7 +1,3 @@
-$("textfield").val("");
-$("attachmentfield").val("");
-$("collectionselect").val("");
-$("textarea").val("");
-$("input").val("");
 $('#exampleModalLong').modal('hide')
 $('.posts').html("<%= escape_javascript(render 'posts', posts: @posts )%>")
+$('#basketball').html("<%= escape_javascript(render 'form', newpost: @newpost )%>")
