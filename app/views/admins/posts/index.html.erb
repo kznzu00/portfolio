@@ -1,4 +1,13 @@
-<div class="container mt-5">
+<dic class="container">
+  <div class="row">
+    <div class="col-4 offset-7">
+      <%= link_to "すべての投稿の統計", admins_posts_statistics_path, class: "btn btn btn-outline-info btn-lg" %>
+    </div>
+  </div>
+</dic>
+
+
+<div class="container">
   <div class="row">
     <div class="col">
       <% @posts.each do | post | %>
@@ -68,4 +77,3 @@
   </div>
 </div>
 
-<%= link_to "統計", admins_posts_statistics_path %>

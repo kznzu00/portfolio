@@ -1,4 +1,6 @@
 class Public::UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:my_page, :edit, :update, :unsubscribe, :withdraw]
+
   def my_page
     @user = current_user
     @current_user_posts = Post.where(user_id: current_user.id)
