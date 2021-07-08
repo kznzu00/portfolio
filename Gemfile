@@ -74,3 +74,8 @@ gem 'pry-byebug'
 gem 'kaminari','~> 1.2.1'
 
 gem 'chartkick'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
