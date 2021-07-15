@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get 'users/statistics/:id', to: 'users#statistics', as: 'users_statistics'
     resources :users,     :only => [:index, :show, :edit, :update]
     resources :posts,     :only => [:index, :show, :destroy] do
-      resources :comments,  :only => [:destroy]
+      resources :comments,  :only => [:destroy, :edit, :update]
       resources :favorites, :only => [:index]
     end
     resources :genres

@@ -1,0 +1,22 @@
+<div class="container pt-5">
+  <div class="row">
+    <div class="col offset-2">
+      <h2>コメントの編集</h2>
+    </div>
+  </div>
+</div>
+
+<%= form_with model: @comment, url: admins_post_comment_path,local:true do |f| %>
+<div class="container pt-5">
+  <div class="row">
+    <div class="col offset-2">
+      <%= f.text_area :comment,size: "78x5" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col offset-2">
+      <%= f.submit '変更を保存する', class: "from-control btn btn-outline-success btn-lg" %>
+    </div>
+  </div>
+</div>
+<% end %>
