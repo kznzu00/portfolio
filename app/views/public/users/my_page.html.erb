@@ -1,76 +1,69 @@
-<div class="container pt-5">
+<div class="container mt-5">
   <div class="row">
-    <div class="col-1 offset-3">
-      <%= attachment_image_tag @user, :icon, :fill,100, 100, fallback: "no_image.jpg", class: "mt-3 rounded-circle" %>
-    </div>
-    <div>
-      <h2><%= @user.nickname %></h2>
+    <div class="col">
+      <div class="card mx-auto" style="width: 40rem;">
+        <div class="card-body">
+          <%= attachment_image_tag @user, :icon, :fill,100, 100, fallback: "no_image.jpg", size:'100x100', class: "mt-3 rounded-circle" %>
+          <h2><%= @user.nickname %></h2>
+          <div class="user-info border-top">
+            <div class="container">
+              <div class="row">
+                <div class="col-3">
+                  <h5>氏名</h5>
+                </div>
+                <div class="col">
+                  <h5><%= @user.full_name %></h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <h5>フリガナ</h5>
+                </div>
+                <div class="col">
+                  <h5><%= @user.full_name_kana %></h5>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <h5>
+                    <%= simple_format @user.introduction  %>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <%= link_to '編集', edit_user_path(current_user.id), class: "from-control btn btn-outline-success" %>
+                </div>
+                <div class="col">
+                  <div class="text-right">
+                    <%= link_to '退会する', user_unsubscribe_path, class: "from-control btn btn-outline-danger" %>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="container-fluid">
+<div class="container mt-5">
   <div class="row">
-    <div class="col-2 offset-4">
-      <h5>氏名</h5>
-    </div>
     <div class="col">
-      <h5><%= @user.full_name %></h5>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-2 offset-4">
-      <h5>フリガナ</h5>
-    </div>
-    <div class="col">
-      <h5><%= @user.full_name_kana %></h5>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-2 offset-4">
-      <h5>メールアドレス</h5>
-    </div>
-    <div class="col">
-      <h5><%= @user.email %></h5>
-    </div>
-  </div>
-
-</div>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-2 offset-4">
-      <h5>自己紹介</h5>
-    </div>
-    <div class="col">
-      <%= @user.introduction %>
+      <h4 class="text-center">＜過去の投稿＞</h4>
     </div>
   </div>
 </div>
 
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <div class="col-2 offset-4">
-      <%= link_to '編集', edit_user_path(current_user.id), class: "from-control btn btn-outline-success" %>
-    </div>
     <div class="col">
-      <%= link_to '退会する', user_unsubscribe_path, class: "from-control btn btn-outline-danger" %>
-    </div>
-  </div>
-</div>
-
-<div class="container-fluid mt-5">
-  <div class="row">
-    <div class="col-5 offset-4">
-      <h4>＜過去の投稿＞</h4>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-5 offset-4">
       <% @posts.each do | post | %>
-        <div class="card mb-5" style="width: 40rem;">
+        <div class="card mb-5 mx-auto" style="width: 40rem;">
           <div class="card-header">
             <div class="container">
               <div class="row">
