@@ -29,10 +29,9 @@ class Public::UsersController < ApplicationController
   def withdraw
     @user = User.find(current_user.id)
     @user.update(is_active: '退会')
-        #ログアウトさせる
-        reset_session
-        flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
-        redirect_to new_user_session_path
+    reset_session
+    flash[:Withdrawal] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to new_user_session_path
   end
 
   private
