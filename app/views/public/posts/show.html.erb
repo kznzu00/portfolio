@@ -82,29 +82,31 @@
 </div>
 
 <% if user_signed_in? %>
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-3 offset-2 text-center">
-      <h3>コメント欄</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col text-center">
-      <%= form_with model:[@post, @comment], local:true do |f| %>
-      <%= f.text_area :comment,size: "78x5" %>
-    </div>
-  </div>
+  <%= form_with model:[@post, @comment], local:true do |f| %>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-3 offset-2 text-center">
+          <h3>コメント欄</h3>
+        </div>
+      </div>
 
-  <div class="row">
-    <div class="col-2 offset-8 text-center">
-      <%= f.submit '送信', class: "btn btn-outline-primary btn-lg " %>
+      <div class="row">
+        <div class="col text-center">
+            <%= f.text_area :comment,size: "78x5" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-8 text-right">
+           <%= f.submit '送信', class: "btn btn-outline-primary btn-lg " %>
+        </div>
+      </div>
     </div>
-  </div>
-      <% end %>
-</div>
+  <% end %>
 <% end %>
 
-<<div class="container mt-5 pb-5">
+<div class="container mt-5 pb-5">
   <div class="row">
     <div class="col-8 offset-2">
       <div class="mx-auto">

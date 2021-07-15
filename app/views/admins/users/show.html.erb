@@ -3,7 +3,7 @@
     <div class="col">
       <div class="card mx-auto" style="width: 40rem;">
         <div class="card-body">
-          <%= attachment_image_tag @user, :icon, :fill,100, 100, fallback: "no_image.jpg", class: "mt-3 rounded-circle" %>
+          <%= attachment_image_tag @user, :icon, :fill,100, 100, fallback: "no_image.jpg", size:'100x100', class: "mt-3 rounded-circle" %>
           <h2><%= @user.nickname %></h2>
           <div class="user-info border-top">
             <div class="container">
@@ -37,10 +37,19 @@
                   <h5>ステータス:<%= @user.is_active %></h5>
                 </div>
               </div>
+
+              <div class="row">
+                <div class="col">
+                  <%= link_to "投稿の統計", admins_users_statistics_path(@user.id), class: "btn btn-info" %>
+                </div>
+                <div class="col">
+                  <div class="change text-right">
+                    <%= link_to '変更する', edit_admins_user_path(@user.id), class: "btn btn-primary" %>
+                  </div>
+                </div>
+              </div>
+
             </div>
-          </div>
-          <div class="change text-right">
-            <%= link_to '変更する', edit_admins_user_path(@user.id), class: "btn btn-primary" %>
           </div>
         </div>
       </div>
@@ -126,4 +135,3 @@
   </div>
 </div>
 
-<%= link_to "統計", admins_users_statistics_path(@user.id) %>
