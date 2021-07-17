@@ -8,11 +8,22 @@ class Admins::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).reverse_order
+
   end
 
   def statistics
     @user = User.find(params[:id])
     @posts = @user.posts
+    @maker_datas = {}
+    Maker.all.each  do |maker|
+      @maker_datas[maker.name] = @user.posts.where(maker_id: maker.id).count
+    end
+
+    @genre_datas = {}
+    Genre.all.each  do |genre|
+      @genre_datas[genre.name] = @user.posts.where(genre_id: genre.id).count
+    end
+
   end
 
   def edit

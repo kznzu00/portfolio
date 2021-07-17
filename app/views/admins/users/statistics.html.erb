@@ -10,10 +10,11 @@
 
   <div class="row">
     <div class="col-4 offset-2">
-      <%= pie_chart @posts.group(:maker_id).count %>
+      <%= pie_chart(@maker_datas) %>
     </div>
+
     <div class="col">
-      <%= pie_chart @posts.group(:genre_id).count %>
+      <%= pie_chart(@genre_datas) %>
     </div>
   </div>
 
