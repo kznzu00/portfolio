@@ -1,20 +1,30 @@
 <div class="container pt-5">
   <div class="row">
-    <div class="col offset-2">
+    <div class="col">
       <h4>投稿されたアイテムのメーカー統計</h4>
     </div>
+  </div>
+
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <%= column_chart (@maker_datas) %>
+    </div>
+  </div>
+
+</div>
+
+<div class="container pt-5 pb-5">
+  <div class="row">
     <div class="col">
       <h4>投稿されたアイテムのジャンル統計</h4>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-4 offset-2">
-      <%= pie_chart (@maker_datas) %>
-    </div>
-    <div class="col">
-      <%= pie_chart (@genre_datas) %>
+    <div class="col-8 mx-auto">
+      <%= column_chart (@genre_datas) %>
     </div>
   </div>
 
 </div>
+
